@@ -1,12 +1,7 @@
 // Alex Reich Consulting — interactive components
 const { useState, useEffect, useRef, useMemo } = React;
 
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "accent": "#c2410c",
-  "theme": "light",
-  "showRepoFlags": true,
-  "denseCaps": false
-}/*EDITMODE-END*/;
+const CAPS_OPTS = { showRepoFlags: true, denseCaps: false };
 
 function cx(...xs) { return xs.filter(Boolean).join(" "); }
 
@@ -185,7 +180,7 @@ function Services({ data }) {
     <section className="section" id="services" data-screen-label="Services">
       <div className="section-head">
         <SecLabel n="01">What I do</SecLabel>
-        <h2 className="section-title">Six ways I plug into a team</h2>
+        <h2 className="section-title">How I plug into a team</h2>
       </div>
       <div className="svc-grid">
         {data.services.map((s) => (
@@ -461,35 +456,10 @@ function Footer({ data }) {
   );
 }
 
-// ---- TWEAKS ----
-function SiteTweaks({ tweaks, setTweak }) {
-  return (
-    <TweaksPanel title="Tweaks">
-      <TweakSection title="Look">
-        <TweakRadio label="Theme" value={tweaks.theme} onChange={(v) => setTweak("theme", v)}
-          options={[{ value: "light", label: "Light" }, { value: "dark", label: "Dark" }]} />
-        <TweakColor label="Accent" value={tweaks.accent} onChange={(v) => setTweak("accent", v)}
-          options={["#c2410c", "#1f6f5c", "#3a4a8c", "#9a3412"]} />
-      </TweakSection>
-      <TweakSection title="Capabilities">
-        <TweakToggle label="Flag repo-found skills" checked={tweaks.showRepoFlags} onChange={(v) => setTweak("showRepoFlags", v)} />
-        <TweakToggle label="Dense layout" checked={tweaks.denseCaps} onChange={(v) => setTweak("denseCaps", v)} />
-      </TweakSection>
-    </TweaksPanel>
-  );
-}
-
 // ---- APP ----
 function App() {
-  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const data = window.SITE;
   const active = useScrollSpy(["services", "capabilities", "work", "ventures", "about"]);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    root.dataset.theme = tweaks.theme;
-    root.style.setProperty("--accent", tweaks.accent);
-  }, [tweaks.theme, tweaks.accent]);
 
   return (
     <div className="site">
@@ -497,7 +467,7 @@ function App() {
       <Hero data={data} />
       <LocalSection />
       <Services data={data} />
-      <Capabilities data={data} tweaks={tweaks} />
+      <Capabilities data={data} tweaks={CAPS_OPTS} />
       <Work data={data} />
       <Clients data={data} />
       <Ventures data={data} />
@@ -505,7 +475,6 @@ function App() {
       <About data={data} />
       <Contact data={data} />
       <Footer data={data} />
-      <SiteTweaks tweaks={tweaks} setTweak={setTweak} />
     </div>
   );
 }

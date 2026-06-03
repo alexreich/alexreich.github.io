@@ -11,7 +11,7 @@ window.SITE = {
   hero: {
     kicker: "Independent engineering consultancy",
     title: "Senior engineering, shipped end-to-end.",
-    sub: "Hands-on engineering leader with nearly three decades building secure, scalable systems across banking, fintech, media, and SaaS. I design the schema, build the API, ship the UI, wire the CI/CD, and stay on for production — as a player/coach, not a slide deck.",
+    sub: "Hands-on engineering leader with three decades building secure, scalable systems across banking, fintech, media, and SaaS. I design the schema, build the API, ship the UI, wire the CI/CD, and stay on for production — as a player/coach, not a slide deck.",
     cta1: "Book a call",
     cta2: "See the work",
   },
@@ -19,7 +19,7 @@ window.SITE = {
   stats: [
     { value: 1.2, prefix: "$", suffix: "B", label: "in PPP loans processed on a platform I led" },
     { value: 29, suffix: "", label: "years shipping production software — since 1997" },
-    { value: 8, suffix: "", label: "engineers led as VP / player-coach" },
+    { value: 8, suffix: "", label: "engineers led directly as VP, while staying hands-on" },
     { value: 50, suffix: " mi", label: "Avalon ultramarathon finisher" },
   ],
 
@@ -66,6 +66,12 @@ window.SITE = {
       body: "Beyond software, the whole machine is on offer. New box builds, hardware diagnosis on PC and Apple, and OS-level troubleshooting across macOS, Linux, and Windows — plus network setup and security hardening at the router and firewall.",
       tags: ["Build & repair", "macOS · Linux · Windows", "Networking", "Router / firewall", "Security"],
       wide: true,
+    },
+    {
+      n: "08",
+      title: "Legacy & small-business software rescue",
+      body: "If your order system, scheduling tool, or custom database has been \"good enough\" for years — until it wasn't — you don't need to put a full-time developer on staff. I work directly with business owners to understand what you have, fix what's broken, and modernize it without throwing everything away. No long-term contract, no jargon. Serving Temecula, Murrieta, Lake Elsinore, and SW Riverside County.",
+      tags: ["Order management", "Excel / Access migration", "Inventory tools", "Scheduling systems", "On-site available"],
     },
   ],
 
@@ -243,10 +249,10 @@ window.SITE = {
   career: [
     { years: "2022 – 2026", co: "Mechanics Bank", role: "Principal Software Developer" },
     { years: "2019 – 2022", co: "Mechanics Bank", role: "Vice President, Software Development" },
-    { years: "2019", co: "CloudVirga", role: "Senior Application Developer, Consultant" },
+    { years: "2019", co: "CloudVirga", role: "Senior Application Developer — Consultant (concurrent with Foxtales)" },
     { years: "2019", co: "Foxtales", role: "Chief Technology Officer" },
     { years: "2017 – 2018", co: "Jobfilez", role: "Chief Technology Officer" },
-    { years: "2017 – 2018", co: "Western Growers", role: ".NET Architect, Consultant" },
+    { years: "2017 – 2018", co: "Western Growers", role: ".NET Architect — Consultant (concurrent with Jobfilez)" },
     { years: "2017", co: "Hitachi Consulting", role: "Xamarin Architect, Consultant" },
     { years: "2016 – 2017", co: "SJC Startup", role: "Senior Full-Stack Engineer" },
     { years: "2015 – 2016", co: "ProSearch", role: "Senior Developer" },
