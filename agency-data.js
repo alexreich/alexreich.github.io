@@ -9,9 +9,9 @@ window.SITE = {
   github: "github.com/alexreich",
 
   hero: {
-    kicker: "Independent .NET engineering consultancy",
+    kicker: "Independent engineering consultancy",
     title: "Senior engineering, shipped end-to-end.",
-    sub: "Hands-on .NET engineering leader with nearly three decades building secure, scalable systems across banking, fintech, media, and SaaS. I design the schema, build the API, ship the UI, wire the CI/CD, and stay on for production — as a player/coach, not a slide deck.",
+    sub: "Hands-on engineering leader with nearly three decades building secure, scalable systems across banking, fintech, media, and SaaS. I design the schema, build the API, ship the UI, wire the CI/CD, and stay on for production — as a player/coach, not a slide deck.",
     cta1: "Book a call",
     cta2: "See the work",
   },

@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Alex Reich Consulting · Hands-on .NET engineering</title>
+<title>Alex Reich Consulting · Software Modernization & Fractional Engineering · Lake Elsinore & SW Riverside County</title>
+<meta name="description" content="Senior engineer and fractional engineering leader based in Lake Elsinore, CA. Modernizing aging order systems, inventory tools, and custom business software — serving Temecula, Murrieta, Menifee, and SW Riverside County without a full-time hire." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -110,7 +111,15 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 /* ---------- hero ---------- */
 .hero { padding: clamp(56px, 9vw, 120px) var(--pad-x) clamp(40px, 6vw, 72px); }
-.hero-inner { max-width: var(--maxw); margin: 0 auto; }
+.hero-inner { max-width: var(--maxw); margin: 0 auto; display: flex; align-items: flex-start; gap: clamp(40px, 6vw, 80px); }
+.hero-content { flex: 1; min-width: 0; }
+.hero-photo-wrap {
+  flex-shrink: 0; width: clamp(180px, 18vw, 240px);
+  border-radius: var(--r); overflow: hidden; line-height: 0;
+  border: 1px solid color-mix(in oklch, var(--accent) 30%, var(--rule));
+  box-shadow: var(--shadow); margin-top: 6px;
+}
+.hero-photo-wrap img { width: 100%; height: auto; display: block; object-fit: cover; object-position: center top; }
 .hero-kicker {
   display: inline-flex; align-items: center; gap: 9px;
   font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.02em;
@@ -335,6 +344,44 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .footer { max-width: var(--maxw); margin: 0 auto; padding: 32px var(--pad-x); display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
 .footer-brand { font-family: var(--sans); font-weight: 700; color: var(--ink); font-size: 15px; }
 
+/* ---------- local section ---------- */
+.local {
+  background: var(--bg-2);
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  padding: clamp(48px, 7vw, 96px) var(--pad-x);
+}
+.local-inner { max-width: var(--maxw); margin: 0 auto; }
+.local-kicker {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.02em;
+  color: var(--ink-2); padding: 7px 14px 7px 11px;
+  border: 1px solid var(--rule); border-radius: 999px; background: var(--surface);
+  margin-bottom: 28px;
+}
+.local-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.local-title {
+  font-size: clamp(26px, 3.2vw, 42px); font-weight: 800; letter-spacing: -0.025em;
+  line-height: 1.08; margin: 0 0 20px; max-width: 22ch; text-wrap: balance;
+}
+.local-body { font-size: clamp(15px, 1.4vw, 18px); line-height: 1.65; color: var(--ink-2); margin: 0 0 24px; text-wrap: pretty; }
+.local-bullets { list-style: none; margin: 0 0 28px; padding: 0; }
+.local-bullets li {
+  font-size: 15px; line-height: 1.6; color: var(--ink-2); margin-bottom: 10px;
+  padding-left: 22px; position: relative; text-wrap: pretty;
+}
+.local-bullets li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-family: var(--mono); }
+.local-right { padding-top: 4px; }
+.area-label {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+}
+.area-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.area-chip {
+  font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 999px;
+  background: var(--surface); border: 1px solid color-mix(in oklch, var(--accent) 40%, var(--rule));
+  color: var(--ink);
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 920px) {
   .svc-grid { grid-template-columns: 1fr 1fr; }
@@ -346,12 +393,16 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .career-row { grid-template-columns: 110px 1fr; gap: 6px 16px; }
   .career-role { grid-column: 2; font-size: 13.5px; }
 }
+@media (max-width: 720px) {
+  .local-layout { grid-template-columns: 1fr; }
+}
 @media (max-width: 680px) {
   .nav-links { position: fixed; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 8px var(--pad-x) 16px; transform: translateY(-12px); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
   .nav-links-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
   .nav-link { padding: 12px 4px; }
   .nav-cta { margin: 8px 0 0; text-align: center; }
   .nav-burger { display: flex; }
+  .hero-photo-wrap { display: none; }
   .svc-grid { grid-template-columns: 1fr; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
   .case-head { flex-direction: column; gap: 16px; }
@@ -362,6 +413,36 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .footer { flex-direction: column; text-align: center; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Alex Reich Consulting",
+  "founder": { "@type": "Person", "name": "Alex Reich" },
+  "email": "alex@alexreich.com",
+  "telephone": "+13102918969",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lake Elsinore",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Lake Elsinore" },
+    { "@type": "City", "name": "Temecula" },
+    { "@type": "City", "name": "Murrieta" },
+    { "@type": "City", "name": "Menifee" },
+    { "@type": "City", "name": "Wildomar" },
+    { "@type": "City", "name": "Canyon Lake" },
+    { "@type": "City", "name": "Corona" },
+    { "@type": "City", "name": "Perris" },
+    { "@type": "AdministrativeArea", "name": "Riverside County" }
+  ],
+  "description": "software modernization and fractional engineering leadership serving Lake Elsinore and Southwest Riverside County, CA.",
+  "url": "https://alexreich.com",
+  "sameAs": ["https://github.com/alexreich"]
+}
+</script>
 </head>
 <body>
 <div id="root"></div>

@@ -107,25 +107,70 @@ function Hero({ data }) {
   return (
     <header className="hero" id="top" data-screen-label="Hero">
       <div className="hero-inner">
-        <div className="hero-kicker"><span className="dot"></span>{data.hero.kicker}</div>
-        <h1 className="hero-title">{data.hero.title}</h1>
-        <p className="hero-sub">{data.hero.sub}</p>
-        <div className="hero-ctas">
-          <a href="#contact" className="btn btn-primary" onClick={go("contact")}>{data.hero.cta1}</a>
-          <a href="#work" className="btn btn-ghost" onClick={go("work")}>{data.hero.cta2} <span className="arr">→</span></a>
-        </div>
-        <div className="hero-stats">
-          {data.stats.map((s, i) => (
-            <div className="hstat" key={i}>
-              <div className="hstat-val">
-                <CountUp value={s.value} prefix={s.prefix || ""} suffix={s.suffix || ""} decimals={s.value % 1 !== 0 ? 1 : 0} />
+        <div className="hero-content">
+          <div className="hero-kicker"><span className="dot"></span>{data.hero.kicker}</div>
+          <h1 className="hero-title">{data.hero.title}</h1>
+          <p className="hero-sub">{data.hero.sub}</p>
+          <div className="hero-ctas">
+            <a href="#contact" className="btn btn-primary" onClick={go("contact")}>{data.hero.cta1}</a>
+            <a href="#work" className="btn btn-ghost" onClick={go("work")}>{data.hero.cta2} <span className="arr">→</span></a>
+          </div>
+          <div className="hero-stats">
+            {data.stats.map((s, i) => (
+              <div className="hstat" key={i}>
+                <div className="hstat-val">
+                  <CountUp value={s.value} prefix={s.prefix || ""} suffix={s.suffix || ""} decimals={s.value % 1 !== 0 ? 1 : 0} />
+                </div>
+                <div className="hstat-label">{s.label}</div>
               </div>
-              <div className="hstat-label">{s.label}</div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+        <div className="hero-photo-wrap">
+          <img src="AlexReich.jpg" alt="Alex Reich" />
         </div>
       </div>
     </header>
+  );
+}
+
+// ---- LOCAL ----
+function LocalSection() {
+  const go = (id) => (e) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.offsetTop - 72, behavior: "smooth" });
+  };
+  const cities = ["Lake Elsinore", "Temecula", "Murrieta", "Menifee", "Wildomar", "Canyon Lake", "Corona", "Perris", "Riverside County"];
+  return (
+    <section className="local" id="local" data-screen-label="Local">
+      <div className="local-inner">
+        <div className="local-kicker"><span className="dot"></span>Based in Lake Elsinore, CA</div>
+        <div className="local-layout">
+          <div className="local-left">
+            <h2 className="local-title">Your business software shouldn't be holding you back.</h2>
+            <p className="local-body">
+              If your order system, scheduling tool, or inventory tracker has been "good enough" for years — until it wasn't —
+              you don't need to put a full-time developer on staff. You need a senior engineer who can come in,
+              understand what you have, fix what's broken, and make it safe to grow again.
+              I work directly with local business owners, no long-term contract required.
+            </p>
+            <ul className="local-bullets">
+              <li>Order management, inventory, and scheduling tools that have outgrown Excel or Access</li>
+              <li>Custom software that's slow, fragile, or tied to a vendor you can no longer reach</li>
+              <li>Modernizing what works — without throwing away what you've built</li>
+            </ul>
+            <a href="#contact" className="btn btn-primary" onClick={go("contact")}>Book a free conversation</a>
+          </div>
+          <div className="local-right">
+            <div className="area-label">Serving businesses in</div>
+            <div className="area-chips">
+              {cities.map((c) => <span key={c} className="area-chip">{c}</span>)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -450,6 +495,7 @@ function App() {
     <div className="site">
       <Nav data={data} active={active} />
       <Hero data={data} />
+      <LocalSection />
       <Services data={data} />
       <Capabilities data={data} tweaks={tweaks} />
       <Work data={data} />
